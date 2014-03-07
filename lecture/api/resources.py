@@ -4,7 +4,8 @@ from tastypie.bundle import Bundle
 from tastypie.constants import ALL_WITH_RELATIONS
 from tastypie.fields import ToManyField, CharField, ToOneField
 from tastypie.resources import ModelResource, Resource
-from lecture.models import Student, Class
+from lecture.models import Student, Class, Project, StudentProject
+
 
 class BareClassResource(ModelResource):
     class Meta:
@@ -17,6 +18,12 @@ class StudentResource(ModelResource):
     class Meta:
         queryset = Student.objects.all()
         resource_name = "student"
+        authorization = Authorization()
+
+class StudentProjectResource(ModelResource):
+    class Meta:
+        queryset = StudentProject.objects.all()
+        resource_name = "project"
         authorization = Authorization()
 
 

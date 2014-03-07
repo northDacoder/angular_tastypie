@@ -17,3 +17,11 @@ class Student(models.Model):
 
     def __unicode__(self):
         return "{0} {1}".format(self.first_name, self.last_name)
+
+
+class StudentProject(models.Model):
+    project = models.ForeignKey(Student)
+    name = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return self.name
