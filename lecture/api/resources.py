@@ -1,10 +1,21 @@
 from django.conf import settings
-from tastypie.authorization import Authorization
+from tastypie.authentication import BasicAuthentication
+from tastypie.authorization import Authorization, DjangoAuthorization
 from tastypie.bundle import Bundle
 from tastypie.constants import ALL_WITH_RELATIONS
 from tastypie.fields import ToManyField, CharField, ToOneField
 from tastypie.resources import ModelResource, Resource
-from lecture.models import Student, Class, Project, StudentProject
+from lecture.api.authorization import UserObjectsOnlyAuthorization
+from lecture.models import Student, Class, StudentProject
+from soxbox.models import Media
+
+
+class MediaResource(ModelResource):
+    class Meta:
+        queryset = Media.objects.all()
+        resource_name = "media"
+        authentication = BasicAuthentication()
+        authorization = UserObjectsOnlyAuthorization()
 
 
 class BareClassResource(ModelResource):
@@ -12,13 +23,6 @@ class BareClassResource(ModelResource):
         queryset = Class.objects.all()
         resource_name = "bare_class"
 
-class StudentResource(ModelResource):
-    klass = ToOneField(BareClassResource, 'klass', full=True)
-
-    class Meta:
-        queryset = Student.objects.all()
-        resource_name = "student"
-        authorization = Authorization()
 
 class StudentProjectResource(ModelResource):
     class Meta:
@@ -26,6 +30,15 @@ class StudentProjectResource(ModelResource):
         resource_name = "project"
         authorization = Authorization()
 
+
+class StudentResource(ModelResource):
+    klass = ToOneField(BareClassResource, 'klass', full=True)
+    projects = ToManyField(StudentProjectResource, 'projects', full=True, null=True)
+
+    class Meta:
+        queryset = Student.objects.all()
+        resource_name = "student"
+        authorization = Authorization()
 
 class ClassResource(ModelResource):
     students = ToManyField(StudentResource, 'students', full=True, null=True)

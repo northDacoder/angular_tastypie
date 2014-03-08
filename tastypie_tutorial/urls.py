@@ -2,14 +2,17 @@ from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
 from tastypie.api import Api
-from lecture.api.resources import StudentResource, ClassResource, VersionResource
+from lecture.api.resources import StudentResource, ClassResource, VersionResource, StudentProjectResource, MediaResource
 
 admin.autodiscover()
 
 v1_api = Api(api_name="v1")
 v1_api.register(StudentResource())
 v1_api.register(ClassResource())
+v1_api.register(StudentProjectResource())
 v1_api.register(VersionResource())
+v1_api.register(MediaResource())
+
 
 
 urlpatterns = patterns('',

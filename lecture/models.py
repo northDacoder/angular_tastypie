@@ -20,7 +20,7 @@ class Student(models.Model):
 
 
 class StudentProject(models.Model):
-    project = models.ForeignKey(Student)
+    project = models.ForeignKey(Student, related_name="projects")
     name = models.CharField(max_length=100)
 
     def __unicode__(self):

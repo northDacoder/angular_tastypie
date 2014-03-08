@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'lecture',
     'tastypie',
     'tastypie_swagger',
+    'soxbox',
 )
 
 MIDDLEWARE_CLASSES = (
