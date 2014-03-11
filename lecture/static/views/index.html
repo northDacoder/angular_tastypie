@@ -1,5 +1,17 @@
 <!-- Main Index View -->
 
-<a href="#/class">Class</a>
+<a href="#/class/1">Class</a>
 <a href="#/student">Student</a>
 <a href="#/addStudent">Add Student</a>
+
+<div>
+    <a href="#/student">
+        Go to Student Page
+    </a>
+
+    <div data-ng-repeat="class in classes">
+        <a href="#/class/{{ class.id }}">
+            View {{ class.title }}'s Page
+        </a>
+    </div>
+</div>
