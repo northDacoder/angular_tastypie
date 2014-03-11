@@ -1,2 +1,14 @@
 <h1>Welcome to the class view</h1>
 
+<div ng-repeat="cohort in cohorts" class="cohort">
+    <h1 class="viewTitle">{{ cohort.title }}</h1>
+    <!--<h2>Cohort Id: {{ cohort.id }}</h2>-->
+    <h2>Dates: {{ cohort.start_date }} {{ cohort.end_date }}</h2>
+    <ul data-ng-repeat="student in cohort.students">
+        <a href="#/class/{{ student }}">
+            <li>
+                <span class="studentname">{{ student.first_name }} {{ student.last_name }}</span>
+            </li>
+        </a>
+    </ul>
+</div>
