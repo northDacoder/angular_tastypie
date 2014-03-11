@@ -1,0 +1,31 @@
+{% load static %}
+
+<!doctype html>
+<html>
+	<head>
+        <!-- Angular Files -->
+        <script src="{% get_static_prefix %}js/vendor/angular.js"></script>
+        <script src="{% get_static_prefix %}js/vendor/angular-route.js"></script>
+        <script src="{% get_static_prefix %}js/vendor/angular-resource.js"></script>
+
+        <!-- JavaScript Files -->
+        <script src="{% get_static_prefix %}js/app.js"></script>
+        <script src="{% get_static_prefix %}js/factory.js"></script>
+
+        <!-- Controllers -->
+        <script src="{% get_static_prefix %}js/controllers/indexController.js"></script>
+        <script src="{% get_static_prefix %}js/controllers/classController.js"></script>
+
+        <!-- CSS FILES -->
+        <link href="{% get_static_prefix %}css/index.css" rel="stylesheet" type="text/css">
+
+	</head>
+	<body>
+	    <div class="topNav">This text is static</div>
+        <div data-ng-app="exampleApp">
+            <div ng-view></div>
+        </div>
+
+        <div class="bottomNav">So is this</div>
+	</body>
+</html>
