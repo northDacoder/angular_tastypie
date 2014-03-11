@@ -10,7 +10,7 @@
 
         <!-- JavaScript Files -->
         <script src="{% get_static_prefix %}js/app.js"></script>
-        <script src="{% get_static_prefix %}js/factory.js"></script>
+{#        <script src="{% get_static_prefix %}js/factory.js"></script>#}
 
         <!-- Controllers -->
         <script src="{% get_static_prefix %}js/controllers/indexController.js"></script>
@@ -18,15 +18,14 @@
         <script src="{% get_static_prefix %}js/controllers/studentController.js"></script>
 
         <!-- CSS FILES -->
-        <link href="{% get_static_prefix %}css/index.css" rel="stylesheet" type="text/css">
+{#        <link href="{% get_static_prefix %}css/index.css" rel="stylesheet" type="text/css">#}
 
 	</head>
 	<body>
 	    <div class="topNav">This text is static</div>
         <div data-ng-app="exampleApp">
             <div ng-view>
-                <a href="../static/views/class">Class</a>
-                <a href="../static/views/student">Student</a>
+
             </div>
         </div>
 

@@ -1,18 +1,21 @@
-var app = angular.module('exampleApp', ['ngRoute', 'ngResource']);
+var app = angular.module('exampleApp', [
+    'ngRoute',
+    'ngResource'
+]);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-    $routeProvider
-        .when('/',
+    $routeProvider.
+        when('/',
             {
                 templateUrl: '/static/views/index.html',
                 controller: 'indexController'
-            })
-        .when('/class',
+            }).
+        when('/class',
             {
                 templateUrl: '/static/views/class.html',
                 controller: 'classController'
-            })
-        .when('/student',
+            }).
+        when('/student',
             {
                 templateUrl: '/static/views/student.html',
                 controller: 'studentController'
