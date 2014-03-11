@@ -11,5 +11,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             {
                 templateUrl: '/static/views/class.html',
                 controller: 'classController'
+            })
+        .when('/student',
+            {
+                templateUrl: '/static/views/student.html',
+                controller: 'studentController'
             });
 )]);
