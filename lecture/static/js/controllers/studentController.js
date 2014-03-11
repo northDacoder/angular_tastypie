@@ -11,9 +11,15 @@ function studentController($scope, $http) {
 
     $scope.addStudent = function() {
         console.log($scope.user);
-        alert('wait');
         $http:post('api/v1/student/', $scope.user).success(function(){
-            console.log("Sent");
+            alert('Add a student?');
+        });
+    }
+
+    $scope.deleteStudent = function() {
+        console.log($scope.user);
+        $http:delete('api/v1/student/', $scope.user).success(function(){
+            alert('You are trying to delete a student!');
         });
     }
 };
