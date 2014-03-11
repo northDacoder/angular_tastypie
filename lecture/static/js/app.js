@@ -5,19 +5,7 @@ var app = angular.module('exampleApp', [
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
-        when('/',
-            {
-                templateUrl: '/static/views/index.html',
-                controller: 'indexController'
-            }).
-        when('/class',
-            {
-                templateUrl: '/static/views/class.html',
-                controller: 'classController'
-            }).
-        when('/student',
-            {
-                templateUrl: '/static/views/student.html',
-                controller: 'studentController'
-            });
-)]);
+        when('/',{ templateUrl: '/static/views/index.html', controller: 'indexController' }).
+        when('/class',{ templateUrl: '/static/views/class.html', controller: 'classController' }).
+        when('/student', { templateUrl: '/static/views/student.html', controller: 'studentController' })
+}]);
