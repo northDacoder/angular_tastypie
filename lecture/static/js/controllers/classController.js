@@ -1,17 +1,18 @@
-function classController($scope, $http) {
-      $http.get('api/v1/class/?format=json').success(function(data){
-          var cohorts = [];
+function classController($scope, $http, $routeParams) {
+      $http.get('api/v1/class/' + $routeParams.id + '?format=json').success(function(data){
 
           console.log(data);
-          var classobj = data.objects;
-          console.log(classobj);
-          for (var i = 0; i < classobj.length; i++) {
-              console.log(classobj[i]);
-              cohorts.push(classobj[i]);
-          }
+          $scope.class = data;
+          $scope.students = data.students;
+          $scope.title = students.title;
 
-          console.log(cohorts);
-          $scope.cohorts = cohorts;
+//          var classobj = data.objects;
+//          console.log(classobj);
+//          for (var i = 0; i < classobj.length; i++) {
+//              console.log(classobj[i]);
+//              cohorts.push(classobj[i]);
+//          }
+
       }).error(function(data){
           console.log("You have an error in your code");
       });
